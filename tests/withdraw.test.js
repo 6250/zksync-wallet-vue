@@ -18,7 +18,7 @@ describe("Withdraw", () => {
 
   test('Account connect to MetaMask extention', async () => {
     browser = await dappeteer.launch(puppeteer, {
-      headless: false,
+      headless: true,
       slowMo: 10,
     })
     const metamaskOptions = {
@@ -34,7 +34,8 @@ describe("Withdraw", () => {
     walletPage = await browser.newPage()
     var tempPage = await browser.newPage()
     await tempPage.bringToFront()
-    await walletPage.goto('http://localhost:3000/')
+    //await walletPage.goto('http://localhost:3000/')
+    await walletPage.goto('https://zksync-vue-rinkeby-2--pr71-fix-onchain-cpk-ux3a8uav.web.app')
     await walletPage.bringToFront()
     await tempPage.close()
   }, 60000);
